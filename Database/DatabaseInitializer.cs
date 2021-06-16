@@ -10,9 +10,11 @@ namespace Database
 {
     public class DatabaseInitializer : IDatabaseInitializer
     {
-        public void Initialize(IServiceCollection serviceCollection)
+        public IServiceCollection Initialize(IServiceCollection serviceCollection)
         {
             serviceCollection.AddDbContext<DatabaseContext>();
+
+            return serviceCollection;
         }
     }
 }

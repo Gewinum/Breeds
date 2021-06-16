@@ -16,7 +16,7 @@ namespace Common.Models
         [Required, Unicode(DatabaseConstants.DefaultStringLength)]
         public string BreedName { get; set; }
 
-        [Required]
-        public List<DogBreed> ChildBreeds;
+        [Required, Unicode(DatabaseConstants.DefaultStringLength)]
+        public string ChildBreeds { get; set; }
     }
 }

@@ -10,7 +10,7 @@ namespace Database
 {
     public class DatabaseContext : DbContext
     {
-        public DbSet<DogBreed> DogBreeds;
+        public DbSet<DogBreed> DogBreeds { get; set; }
 
         private Properties Properties { get; set; }
 
@@ -29,8 +29,6 @@ namespace Database
 
             LoadConnectionStringBuilder();
 
-            Console.WriteLine("meow");
-
             optionsBuilder.UseLazyLoadingProxies()
                 .UseMySQL(Builder.ConnectionString);
         }
@@ -38,8 +36,6 @@ namespace Database
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
-            modelBuilder.Entity<DogBreed>().HasMany(breed => breed.ChildBreeds);
         }
 
         private void LoadConnectionStringBuilder()
@@ -57,7 +53,7 @@ namespace Database
 
         private void CreatePropertiesFile()
         {
-            Properties = new Properties(DatabaseConstants.PropertiesFileName);
+            Properties = new Properties(Environment.CurrentDirectory + DatabaseConstants.PropertiesFileName);
 
             Dictionary<string, string> defaults = new Dictionary<string, string>()
             {

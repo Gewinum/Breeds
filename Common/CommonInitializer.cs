@@ -11,9 +11,11 @@ namespace Common
 {
     public class CommonInitializer : ICommonInitializer
     {
-        public void Initialize(IServiceCollection serviceCollection)
+        public IServiceCollection Initialize(IServiceCollection serviceCollection)
         {
             serviceCollection.AddAutoMapper(configuration => configuration.AddProfile(new MappingProfile()));
+
+            return serviceCollection;
         }
     }
 }

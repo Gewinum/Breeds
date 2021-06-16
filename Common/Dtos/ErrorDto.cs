@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace Common.Dtos
 {
-    public class BreedDto : IDto
+    public class ErrorDto : IDto
     {
-        public string BreedName { get; set; }
-
-        public List<BreedDto> Childs { get; set; }
+        public string Message { get; set; }
     }
 }

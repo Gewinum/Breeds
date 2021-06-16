@@ -26,12 +26,11 @@ namespace Domain
 
         private IApplicationInitializer applicationInitializer;
 
-
         public void ConfigureServices(IServiceCollection services)
         {
             applicationInitializer = new ApplicationInitializer();
 
-            applicationInitializer.Initialize(services);
+            services = applicationInitializer.Initialize(services);
 
             services.AddControllers();
         }

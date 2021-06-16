@@ -9,6 +9,6 @@ namespace Application.Interfaces
 {
     public interface IApplicationInitializer
     {
-        public void Initialize(IServiceCollection serviceCollection);
+        IServiceCollection Initialize(IServiceCollection serviceCollection);
     }
 }

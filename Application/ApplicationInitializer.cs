@@ -20,26 +20,32 @@ namespace Application
 
         private IDatabaseInitializer databaseInitializer;
 
-        public void Initialize(IServiceCollection serviceCollection)
+        public IServiceCollection Initialize(IServiceCollection serviceCollection)
         {
             commonInitializer = new CommonInitializer();
             databaseInitializer = new DatabaseInitializer();
 
-            commonInitializer.Initialize(serviceCollection);
-            databaseInitializer.Initialize(serviceCollection);
+            serviceCollection = commonInitializer.Initialize(serviceCollection);
+            serviceCollection = databaseInitializer.Initialize(serviceCollection);
 
-            InitializeProviders(serviceCollection);
-            InitializeServices(serviceCollection);
+            serviceCollection = InitializeProviders(serviceCollection);
+            serviceCollection = InitializeServices(serviceCollection);
+
+            return serviceCollection;
         }
 
-        private void InitializeProviders(IServiceCollection serviceCollection)
+        private IServiceCollection InitializeProviders(IServiceCollection serviceCollection)
         {
             serviceCollection.AddTransient<IDatabaseProvider, DatabaseProvider>();
+
+            return serviceCollection;
         }
 
-        private void InitializeServices(IServiceCollection serviceCollection)
+        private IServiceCollection InitializeServices(IServiceCollection serviceCollection)
         {
             serviceCollection.AddTransient<IBreedsService, BreedsService>();
+
+            return serviceCollection;
         }
     }
 }

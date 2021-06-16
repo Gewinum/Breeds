@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Common.Dtos;
+using Common.Dtos.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +10,14 @@ namespace Application.Services.Interfaces
 {
     public interface IBreedsService
     {
-        void InitBreeds();
+        ResultDto InitBreeds();
+
+        BreedsListDto GetAllBreeds();
+
+        ResultDto RemoveAllBreeds();
+
+        IDto GetBreedById(int id);
+
+        BreedWithImagesDto GetBreedWithImages(int id, int imagesLimit);
     }
 }

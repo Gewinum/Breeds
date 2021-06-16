@@ -9,6 +9,6 @@ namespace Database.Interfaces
 {
     public interface IDatabaseInitializer
     {
-        void Initialize(IServiceCollection serviceCollection);
+        IServiceCollection Initialize(IServiceCollection serviceCollection);
     }
 }

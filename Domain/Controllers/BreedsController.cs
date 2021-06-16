@@ -21,13 +21,13 @@ namespace Domain.Controllers
             breedsService = _breedsService;
         }
 
-        [HttpGet]
-        public string GetAll()
+        [HttpGet("breeds")]
+        public BreedsListDto GetAll()
         {
             return "all";
         }
 
-        [HttpGet]
+        [HttpDelete("breeds")]
         public string RemoveAll()
         {
             return "removed";

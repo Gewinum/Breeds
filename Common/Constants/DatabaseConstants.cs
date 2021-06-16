@@ -8,7 +8,7 @@ namespace Common.Constants
 {
     public static class DatabaseConstants
     {
-        public const string PropertiesFileName = "database.properties";
+        public const string PropertiesFileName = "/database.properties";
 
         public const string DefaultAddress = "127.0.0.1";
 

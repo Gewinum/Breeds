@@ -9,6 +9,6 @@ namespace Common.Interfaces
 {
     public interface ICommonInitializer
     {
-        void Initialize(IServiceCollection serviceCollection);
+        IServiceCollection Initialize(IServiceCollection serviceCollection);
     }
 }
