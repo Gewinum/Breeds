@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Services.Interfaces
+namespace BusinessLogic.Services.Interfaces
 {
     public interface IBreedsService
     {
@@ -16,8 +16,8 @@ namespace Application.Services.Interfaces
 
         ResultDto RemoveAllBreeds();
 
-        IDto GetBreedById(int id);
+        IDto GetBreedByName(string breedName);
 
-        BreedWithImagesDto GetBreedWithImages(int id, int imagesLimit);
+        IDto GetBreedImages(string breedName, int imagesLimit);
     }
 }

@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Providers.Interfaces
+namespace BusinessLogic.Providers.Interfaces
 {
     public interface IDatabaseProvider
     {
@@ -44,7 +44,9 @@ namespace Application.Providers.Interfaces
 
         long LongCount<T>() where T : class, IEntity;
 
-        public Task<long> LongCountAsync<T>() where T : class, IEntity;
+        Task<long> LongCountAsync<T>() where T : class, IEntity;
+
+        void ClearTable<T>() where T : class, IEntity;
 
         T First<T>(Expression<Func<T, bool>> predicate) where T : class, IEntity;
 

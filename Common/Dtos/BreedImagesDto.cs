@@ -1,4 +1,5 @@
 ﻿using Common.Dtos.Interfaces;
+using Common.Models.Base;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,12 +8,10 @@ using System.Threading.Tasks;
 
 namespace Common.Dtos
 {
-    public class BreedDto : IDto
+    public class BreedImagesDto<T> : IDto
     {
-        public int Id { get; set; }
+        public T Breed;
 
-        public string Name { get; set; }
-
-        public ICollection<ChildBreedDto> Childs { get; set; }
+        public List<string> Images;
     }
 }

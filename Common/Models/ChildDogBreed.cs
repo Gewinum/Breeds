@@ -11,12 +11,9 @@ using System.Threading.Tasks;
 
 namespace Common.Models
 {
-    public class DogBreed : BaseEntity
+    public class ChildDogBreed : BaseEntity
     {
         [Required, Unicode(DatabaseConstants.DefaultStringLength)]
         public string Name { get; set; }
-
-        [Required]
-        public virtual ICollection<ChildDogBreed> Childs { get; set; }
     }
 }

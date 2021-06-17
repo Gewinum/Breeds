@@ -1,8 +1,8 @@
-﻿using Application.Interfaces;
-using Application.Providers;
-using Application.Providers.Interfaces;
-using Application.Services;
-using Application.Services.Interfaces;
+﻿using BusinessLogic.Interfaces;
+using BusinessLogic.Providers;
+using BusinessLogic.Providers.Interfaces;
+using BusinessLogic.Services;
+using BusinessLogic.Services.Interfaces;
 using AutoMapper;
 using Common;
 using Common.Interfaces;
@@ -12,7 +12,7 @@ using Database.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 
-namespace Application
+namespace BusinessLogic
 {
     public class ApplicationInitializer : IApplicationInitializer
     {

@@ -1,5 +1,5 @@
-using Application;
-using Application.Interfaces;
+using BusinessLogic;
+using BusinessLogic.Interfaces;
 using Common.Interfaces;
 using Database.Interfaces;
 using Microsoft.AspNetCore.Builder;
@@ -13,7 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Domain
+namespace BusinessLogic
 {
     public class Startup
     {

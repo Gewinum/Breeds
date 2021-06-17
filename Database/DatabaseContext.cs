@@ -12,6 +12,8 @@ namespace Database
     {
         public DbSet<DogBreed> DogBreeds { get; set; }
 
+        public DbSet<ChildDogBreed> ChildDogBreeds { get; set; }
+
         private Properties Properties { get; set; }
 
         private MySqlConnectionStringBuilder Builder { get; set; }
@@ -35,7 +37,8 @@ namespace Database
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<DogBreed>()
+                .HasMany(b => b.Childs);
         }
 
         private void LoadConnectionStringBuilder()

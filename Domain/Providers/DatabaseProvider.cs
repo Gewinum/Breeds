@@ -1,4 +1,4 @@
-﻿using Application.Providers.Interfaces;
+﻿using BusinessLogic.Providers.Interfaces;
 using Common.Models.Base;
 using Database;
 using Microsoft.EntityFrameworkCore;
@@ -9,7 +9,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Providers
+namespace BusinessLogic.Providers
 {
     public class DatabaseProvider : IDatabaseProvider
     {
@@ -72,6 +72,16 @@ namespace Application.Providers
         public long LongCount<T>() where T : class, IEntity => context.Set<T>().LongCount();
 
         public Task<long> LongCountAsync<T>() where T : class, IEntity => context.Set<T>().LongCountAsync();
+
+        public void ClearTable<T>() where T : class, IEntity
+        {
+            List<T> records = GetAll<T>();
+
+            foreach (T record in records)
+            {
+                Delete(record);
+            }
+        }
 
         public void Create<T>(T entity) where T : class, IEntity
         {

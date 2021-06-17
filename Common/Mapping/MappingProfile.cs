@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
+using Common.Dtos;
+using Common.Models;
 
 namespace Common.Mapping
 {
@@ -11,7 +13,9 @@ namespace Common.Mapping
     {
         public MappingProfile()
         {
+            CreateMap<DogBreed, BreedDto>().ReverseMap();
 
+            CreateMap<ChildDogBreed, ChildBreedDto>().ReverseMap();
         }
     }
 }

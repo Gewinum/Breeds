@@ -1,5 +1,5 @@
-﻿using Application.Services;
-using Application.Services.Interfaces;
+﻿using BusinessLogic.Services;
+using BusinessLogic.Services.Interfaces;
 using Common.Dtos;
 using Common.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -9,8 +9,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Common.Dtos.Interfaces;
 
-namespace Domain.Controllers
+namespace BusinessLogic.Controllers
 {
     public class BreedsController : Controller
     {
@@ -22,21 +23,33 @@ namespace Domain.Controllers
         }
 
         [HttpGet("breeds")]
-        public BreedsListDto GetAll()
+        public BreedsListDto GetAllBreeds()
         {
-            return "all";
+            return breedsService.GetAllBreeds();
         }
 
         [HttpDelete("breeds")]
-        public string RemoveAll()
+        public ResultDto RemoveAllBreeds()
         {
-            return "removed";
+            return breedsService.RemoveAllBreeds();
         }
 
         [HttpPost("init")]
-        public void InitBreeds()
+        public ResultDto InitBreeds()
         {
-            breedsService.InitBreeds();
+            return breedsService.InitBreeds();
+        }
+
+        [HttpGet("/breeds/{breedName}")]
+        public IDto GetBreedByName(string breedName)
+        {
+            return breedsService.GetBreedByName(breedName);
+        }
+
+        [HttpGet("/breeds/{breedName}/images")]
+        public IDto GetBreedImages(string breedName, [FromQuery] int limit)
+        {
+            return breedsService.GetBreedImages(breedName, limit);
         }
     }
 }
