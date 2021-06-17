@@ -3,18 +3,15 @@ using BusinessLogic.Providers;
 using BusinessLogic.Providers.Interfaces;
 using BusinessLogic.Services;
 using BusinessLogic.Services.Interfaces;
-using AutoMapper;
 using Common;
 using Common.Interfaces;
-using Common.Mapping;
 using Database;
 using Database.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
-using System;
 
 namespace BusinessLogic
 {
-    public class ApplicationInitializer : IApplicationInitializer
+    public class Initializer : IInitializer
     {
         private ICommonInitializer commonInitializer;
 

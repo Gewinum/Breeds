@@ -1,18 +1,13 @@
-﻿using BusinessLogic.Providers.Interfaces;
+﻿using AutoMapper;
+using BusinessLogic.Providers.Interfaces;
 using BusinessLogic.Services.Interfaces;
-using Common.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web;
-using System.Net.Http.Json;
 using Common.Dtos;
 using Common.Dtos.Interfaces;
-using AutoMapper;
-using Common.Models.Base;
+using Common.Models;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Net.Http.Json;
+using System.Threading.Tasks;
 
 namespace BusinessLogic.Services
 {
@@ -124,7 +119,7 @@ namespace BusinessLogic.Services
 
             IncomingBreedDto breedsList = httpRequestTask.Result;
 
-            foreach(KeyValuePair<string, List<string>> entry in breedsList.Message)
+            foreach (KeyValuePair<string, List<string>> entry in breedsList.Message)
             {
                 databaseProvider.Create(GetDogBreedModel(entry.Key, entry.Value));
             }
@@ -142,7 +137,7 @@ namespace BusinessLogic.Services
 
             return breedsList.Message;
         }
-        
+
         private DogBreed GetDogBreedModel(string breedName, List<string> childs)
         {
             DogBreed dogBreed = new DogBreed
@@ -173,7 +168,7 @@ namespace BusinessLogic.Services
         private ResultDto GetResultErrorDto(string errorMessage)
         {
             return new ResultDto
-            { 
+            {
                 Success = false,
                 Error = new ErrorDto { Message = errorMessage }
             };

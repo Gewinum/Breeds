@@ -56,7 +56,7 @@ namespace Database
 
         private void CreatePropertiesFile()
         {
-            Properties = new Properties(Environment.CurrentDirectory + DatabaseConstants.PropertiesFileName);
+            Properties = new Properties(Environment.CurrentDirectory + $"/{DatabaseConstants.PropertiesFileName}");
 
             Dictionary<string, string> defaults = new Dictionary<string, string>()
             {

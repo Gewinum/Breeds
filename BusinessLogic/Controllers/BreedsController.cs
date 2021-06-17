@@ -1,15 +1,7 @@
-﻿using BusinessLogic.Services;
-using BusinessLogic.Services.Interfaces;
+﻿using BusinessLogic.Services.Interfaces;
 using Common.Dtos;
-using Common.Models;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using Common.Dtos.Interfaces;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BusinessLogic.Controllers
 {
